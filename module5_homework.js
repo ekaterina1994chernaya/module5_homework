@@ -1,0 +1,95 @@
+//Задание 1
+
+let num = + prompt('Введите число');
+let num1 =+num;
+typeof (num1) ==='Number';
+
+if (num1 % 2 ==0){
+    console.log('Число чётное');
+} else if (num1 % 2 != 0){
+    console.log('Число нечётное');
+} else if (num1 === NaN){
+    console.log('введите число');
+} else{
+    console.log('Упс, кажется, вы ошиблись');
+}
+
+
+//Задание 2
+
+let box = 12;
+
+if (typeof(box) === 'Number'){
+    console.log('Это число');
+} else if (typeof(box) === 'String'){
+    console.log('Это строка')
+} else if (typeof(box) === 'Boolean'){
+    console.log('Это логический тип данных');
+}
+
+
+//Задание 3
+
+    let a = "Hello";
+let result = a.split('').reverse().join('');
+console.log(result);
+
+
+//Задание 4
+    let block = Math.floor(Math.random() * 101);
+console.log(block);
+
+
+
+
+
+//Задание 5
+
+    const arr = [1, 2, 3, 5, 7];
+console.log(arr.length);
+for ( let result = 0; result <= arr.length - 1; result++){
+    console.log(arr[result]);
+}
+
+//Задание 6
+
+let arr1 = [1, 2, 4, 4, 1, 'black'];
+for (let a = 0; a <arr1.length; a++){
+    for (let b = 1; b <arr.length; b++){
+        if (arr1[a] === arr[b]) {
+            console.log('true');
+        } else {
+            console.log('false');
+        }
+    }
+}
+
+//Задание 7
+
+let arr = [1, 5, 23, 'black', 0, 56];
+let nul = 0;
+let even = 0;
+let odd = 0;
+for (let i = 0; i < arr.length; i++){
+    if (arr[i] ===0){
+        nul +=1;
+    } else if (typeof (arr[i] !== 'Number' || typeof (arr[i]) === 'NaN'){
+        console.log('Это не число');
+    } else if (arr[i] % 2 === 0){
+        even +=1;
+    } else {
+        odd +=1;
+    }
+}
+console.log(`${nul} нулей`);
+console.log(`${even} чётных чисел`);
+console.log(`${odd} нечётных чисел`);
+//Задание 8
+
+let map = new Map ([
+    ["name", "Katrin"],
+    ["age", 28],
+    ["work", "tester"]
+]);
+
+console.log(map);
