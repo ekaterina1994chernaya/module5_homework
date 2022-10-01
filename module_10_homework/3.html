@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class='name_chat'></div>
+<input type='text' class='input' placeholder='Write message' maxlength="30"></input>
+<button class='button'>Send</button>
+
+<div class='chat'></div>
+
+
+<style>
+  body{
+  margin: 50px;
+}
+
+.input{
+  width: 350px;
+  height: 30px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.button{
+  height: 38px;
+  width: 100px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background-color: #3CB371;
+  color: #fff;
+}
+
+.button:hover{
+  box-shadow: 5px 3px 4px 2px #98FB98;
+}
+
+.chat{
+  box-shadow: 5px 3px 4px 2px #3CB371; 
+  height: 640px;
+  width: 750px;
+}
+.name_chat{
+  margin-left: 250px;
+  font-size: 25px;
+  color: #3CB371;
+  font-style: italic;
+}
+
+.message{
+  width: 300px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  margin-top: 15px;
+}
+
+.left{
+  background-color: #98FB98;
+}
+.right{
+  background-color: #D3D3D3;
+  margin-left: 400px;
+}  
+</style>
+
+<script>
+    function pageLoaded(){
+  let socket = new WebSocket(wsUrl);
+  socket.onopen = ()=>{
+    outPut.innerText = 'Начать чат';
+  }
+  socket.onmessage = (event) =>{
+    writeToChat(event.data, true);
+  }
+  
+  btn.addEventListener ('click', sendMessage);
+  
+  function sendMessage(){
+    if(!inputMess.value) return;
+    socket.send(inputMess.value);
+    writeToChat(inputMess.value, false);
+    inputMess.value ==="";
+  }
+  
+  function writeToChat(message, isRecieved){
+    let messageHTML = `
+    <div class='message ${isRecieved? "right" : "left"}'>${message}</div>`;
+    chat.innerHTML += messageHTML
+  }
+}
+
+document.addEventListener("DOMContentLoaded", pageLoaded);
+</script>
+</body>
+</html>

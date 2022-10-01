@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homework-10.2</title>
+</head>
+<body>
+    <button id='btn'>Узнать размер экрана</button>
+
+    <style>
+        #btn{
+  margin: 100px;
+  width: 300px;
+  height: 50px;
+  color: #fff;
+  border: none;
+  background: pink;
+  cursor: pointer;
+}
+
+#btn:hover{
+  width: 320px;
+  height: 60px;
+  transition-timing-function: ease;
+  box-shadow: 5px 3px 4px 2px #fac8e3;
+}
+    </style>
+
+    <script>
+        const button = document.querySelector('#btn');
+
+btn.addEventListener('click', () =>{
+  let widthDevice = window.screen.width;
+  let heightDevice = window.screen.height;
+  alert(`Ширина вашего экрана: ${widthDevice}, Высота вашего экрана: ${heightDevice}`)
+})
+    </script>
+</body>
+</html>
